@@ -58,7 +58,7 @@ code/       swcl_physics.py               real-gas density (Standing + Dranchuk�
             generate_deployment_figure.py Fig. 9
             build_fmi_v2.py               builds the manuscript from the JSON results
             *.json                        generated summaries the manuscript reads from
-manuscript/ the manuscript (CC BY 4.0)
+manuscript/ the manuscript and cover letter (CC BY 4.0)
 figures/    all figures at 300 dpi
 ```
 
@@ -85,10 +85,12 @@ top of `fmi_analysis.py`.
 
 ## Citation
 
-- Paper (preprint): [10.5281/zenodo.22760861](https://doi.org/10.5281/zenodo.22760861)
-- Code: [10.5281/zenodo.22760863](https://doi.org/10.5281/zenodo.22760863)
+- Paper (preprint) — concept: [10.5281/zenodo.22760861](https://doi.org/10.5281/zenodo.22760861)
+  · this version: [10.5281/zenodo.22760862](https://doi.org/10.5281/zenodo.22760862)
+- Code — concept: [10.5281/zenodo.22760863](https://doi.org/10.5281/zenodo.22760863)
+  · this version: [10.5281/zenodo.22760864](https://doi.org/10.5281/zenodo.22760864)
 
-Concept DOIs resolve to the latest version.
+The manuscript cites the concept DOIs, which always resolve to the latest version.
 
 ## License
 
