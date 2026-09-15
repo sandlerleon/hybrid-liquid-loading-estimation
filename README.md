@@ -86,7 +86,7 @@ top of `fmi_analysis.py`.
 ## Citation
 
 - Paper (preprint) — concept: [10.5281/zenodo.22760861](https://doi.org/10.5281/zenodo.22760861)
-  · this version: [10.5281/zenodo.22760862](https://doi.org/10.5281/zenodo.22760862)
+  · current version (v4): [10.5281/zenodo.22760981](https://doi.org/10.5281/zenodo.22760981)
 - Code — concept: [10.5281/zenodo.22760863](https://doi.org/10.5281/zenodo.22760863)
   · this version: [10.5281/zenodo.22760864](https://doi.org/10.5281/zenodo.22760864)
 
