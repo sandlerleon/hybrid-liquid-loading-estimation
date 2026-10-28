@@ -403,10 +403,12 @@ cmake("body", "Five corrections that no reviewer raised are listed in the respon
               "the variance at X_LM = 0.05).")
 cmake("body", "The new analyses are deposited with the earlier code at https://github.com/sandlerleon/hybrid-liquid-loading-estimation "
               "(archived at https://doi.org/10.5281/zenodo.22760863). They include executable checks of the revision code, all of which "
-              "pass; the original analysis, and Tables 3, 5 and 6 and Figs 2–8, are unchanged. A preprint of the first version is "
-              "available on ChemRxiv at https://doi.org/10.26434/chemrxiv.15009070/v1.")
+              "pass; the original analysis, and Tables 3, 5 and 6 and Figs 2–8, are unchanged.")
+cmake("body", "I have also posted the first version of the manuscript as a preprint on ChemRxiv "
+              "(https://chemrxiv.org/doi/full/10.26434/chemrxiv.15009070/v1; DOI https://doi.org/10.26434/chemrxiv.15009070/v1). "
+              "The preprint predates the reviews and does not contain the revision.")
 cmake("body", "The manuscript is original, is not under consideration elsewhere, and has not been published previously except as the "
-              "preprint noted above. I am the sole author, I have no competing interests, and the work received no external funding. "
+              "ChemRxiv preprint noted above. I am the sole author, I have no competing interests, and the work received no external funding. "
               "The use of a generative AI tool for drafting, literature synthesis, analysis design and code writing is disclosed in the "
               "manuscript.")
 cmake("body", "Thank you for your consideration.")
