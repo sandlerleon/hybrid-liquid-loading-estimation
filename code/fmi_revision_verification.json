@@ -1,0 +1,45 @@
+{
+ "V1_baseline_reproduces_Table3": {
+  "passed": true,
+  "max_abs_difference_pp": 0.0296,
+  "tolerance_pp": 0.0645,
+  "standard_error_pp": 0.0148
+ },
+ "V2_gls_equals_inverse_variance": {
+  "passed": true,
+  "max_abs_difference": 5.551115123125783e-17
+ },
+ "V3_damping_limit_is_symmetric_fusion": {
+  "passed": true,
+  "max_abs_difference": 5.551115123125783e-17
+ },
+ "V4_Eq14_reduces_to_inverse_variance": {
+  "passed": true,
+  "max_relative_difference": 6.650937205446701e-16
+ },
+ "V5_confusion_matrix_independent_count": {
+  "passed": true,
+  "thresholds": 7,
+  "max_rate_difference": 0.0
+ },
+ "V6_generator_correlation_rho_0.3": {
+  "passed": true,
+  "requested": 0.3,
+  "realized": 0.2997
+ },
+ "V6_generator_correlation_rho_0.6": {
+  "passed": true,
+  "requested": 0.6,
+  "realized": 0.6002
+ },
+ "V7_common_random_numbers": {
+  "passed": true
+ },
+ "V8_first_order_propagation_vs_monte_carlo": {
+  "passed": true,
+  "max_relative_difference": 0.0042
+ },
+ "V9_stored_results_consistent": {
+  "passed": true
+ }
+}
