@@ -307,7 +307,9 @@ for p in tp.paragraphs:
         p.runs[0].text = new
 fix_zoom(tp)
 tp.save(os.path.join(OUTD, "FMI_Title_Page.docx"))
-shutil.copy2(os.path.join(SRCD, "revision1", "FMI_Highlights.docx"), os.path.join(OUTD, "FMI_Highlights.docx"))
+hl = Document(os.path.join(SRCD, "revision1", "FMI_Highlights.docx"))
+fix_zoom(hl)
+hl.save(os.path.join(OUTD, "FMI_Highlights.docx"))
 
 # ============================================================================================ manuscript and figures
 for suf in ("", "_no_author_block"):
