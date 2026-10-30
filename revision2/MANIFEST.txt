@@ -1,0 +1,17 @@
+FLOWMEASINST-D-26-00971 - Revision 2 - prepared 29 October 2026
+
+Upload in Editorial Manager:
+  FMI_Hybrid_Liquid_Loading_Estimation_v6.docx                 revised manuscript (clean; rewritten throughout)
+  FMI_Hybrid_Liquid_Loading_Estimation_v6_no_author_block.docx anonymized copy, if requested
+  FMI_Response_to_Reviewers_R2.docx                            response, with the v5 -> v6 correspondence table
+  FMI_Revision2_Cover_Letter.docx                              cover letter
+  FMI_Highlights.docx                                          unchanged
+  FMI_Title_Page.docx                                          metrics updated
+  figures/Fig1-Fig12 (.tif, 300 dpi)                           Figs 1, 2, 3, 7, 12 relabeled; data unchanged
+
+Review platform (one reply per comment):
+  reply_reviewer1.txt   paste under Reviewer 1 - Revision 1
+  reply_reviewer2.txt   paste under Reviewer 2 - Revision 1
+
+No change-marked copy: the text was rewritten throughout (explained in the response).
+Manuscript metrics: abstract 250 words; main text about 10,680 words; 12 figures; 10 tables + 2 appendix tables; 33 references.
