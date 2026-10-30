@@ -27,6 +27,13 @@ MS = "FLOWMEASINST-D-26-00971"
 TITLE = "Hybrid Physics–Diagnostic Estimation of Liquid Loading for Wet-Gas Flowmeter Correction: A Model-Based Uncertainty Framework"
 MAN = os.path.join(REPO, "manuscript", "FMI_Hybrid_Liquid_Loading_Estimation_v6.docx")
 
+
+def fix_zoom(doc):
+    """python-docx's default settings.xml has <w:zoom> without the required w:percent attribute."""
+    z = doc.settings.element.find(qn("w:zoom"))
+    if z is not None and z.get(qn("w:percent")) is None:
+        z.set(qn("w:percent"), "100")
+
 R2_COMMENT = ("Despite the revisions, the manuscript remains poorly structured and presented. The text often resembles a fragment of program "
               "code or a technical development log rather than a properly written scientific paper. Look at your equations!!! The excessive "
               "use of fragmented explanations, implementation-oriented details, and abrupt transitions significantly impairs readability and "
@@ -196,6 +203,7 @@ para("I am grateful to Reviewer 2 for insisting on this. The paper now presents 
      "as one argument, and its equations can be read as equations. I would be glad to make any further changes the editor or the reviewers "
      "consider necessary.")
 para("Leon Sandler")
+fix_zoom(d)
 d.save(os.path.join(OUTD, "FMI_Response_to_Reviewers_R2.docx"))
 
 # ============================================================================================ pasteable replies
@@ -275,6 +283,7 @@ cmake("sign", "Sincerely,")
 cmake("sign", "Leon Sandler", True)
 cmake("sign", "Independent Researcher, Northbrook, IL, USA")
 cmake("sign", "sandler.leon@gmail.com")
+fix_zoom(cl)
 cl.save(os.path.join(OUTD, "FMI_Revision2_Cover_Letter.docx"))
 
 # ============================================================================================ title page and highlights
@@ -296,6 +305,7 @@ for p in tp.paragraphs:
         for r in p.runs[1:]:
             r._r.getparent().remove(r._r)
         p.runs[0].text = new
+fix_zoom(tp)
 tp.save(os.path.join(OUTD, "FMI_Title_Page.docx"))
 shutil.copy2(os.path.join(SRCD, "revision1", "FMI_Highlights.docx"), os.path.join(OUTD, "FMI_Highlights.docx"))
 

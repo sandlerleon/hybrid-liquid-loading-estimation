@@ -216,10 +216,13 @@ class Doc:
         if tblW is None:
             tblW = OxmlElement("w:tblW"); tblPr.append(tblW)
         tblW.set(qn("w:w"), str(TEXT_WIDTH_TW)); tblW.set(qn("w:type"), "dxa")
-        lay = OxmlElement("w:tblLayout"); lay.set(qn("w:type"), "fixed"); tblPr.append(lay)
         look = tblPr.find(qn("w:tblLook"))
         if look is None:
             look = OxmlElement("w:tblLook"); tblPr.append(look)
+        # schema order: ... tblW, jc, tblCellSpacing, tblInd, tblBorders, shd, tblLayout, tblCellMar, tblLook
+        lay = OxmlElement("w:tblLayout"); lay.set(qn("w:type"), "fixed")
+        mar = tblPr.find(qn("w:tblCellMar"))
+        (mar if mar is not None else look).addprevious(lay)
         look.set(qn("w:val"), "04a0" if first_col_bold else "0420")
         grid = tbl.tblGrid
         for gc, w in zip(grid.findall(qn("w:gridCol")), tw):
