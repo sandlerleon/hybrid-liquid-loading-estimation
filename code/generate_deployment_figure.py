@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Figure 6: where SWCL sits in the existing measurement and control topology.
+"""Figure 12: where the correction layer sits in the existing measurement and control topology.
 Drawn rather than borrowed, so the proposal carries no vendor branding and no
 third-party image rights."""
 import os
@@ -31,7 +31,7 @@ def arr(ax, x1, y1, x2, y2, ls="-", lw=1.0, col=None):
 
 fig, ax = plt.subplots(figsize=(7.8, 5.4))
 ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis("off")
-ax.text(0.5, 0.988, "Where SWCL attaches: read-only, downstream of the flow computer",
+ax.text(0.5, 0.988, "Where the correction layer attaches: read-only, downstream of the flow computer",
         ha="center", va="top", fontsize=10.5, fontweight="bold", color=TXT)
 
 # ---------------------------------------------------------------- the pipe run
@@ -64,7 +64,7 @@ arr(ax, 0.625, y1 + 0.045, 0.695, y1 + 0.045)
 # ------------------------------------------------------------------- the layer
 y2 = 0.300
 box(ax, 0.215, y2, 0.57, 0.140,
-    "SWCL edge service  (new — software only)\n\n"
+    "Correction layer  (software only)\n\n"
     "reads: raw DP, P, T, composition, meter diagnostics\n"
     "writes: nothing to the flow computer or to the process",
     C_NEW, fs=7.8, bold=True, lw=1.8)
@@ -84,7 +84,7 @@ y3 = 0.120
 box(ax, 0.055, y3, 0.25, 0.108,
     "Custody quantity\nunchanged, straight from\nthe flow computer", C_PROC, fs=7.2)
 box(ax, 0.375, y3, 0.25, 0.108,
-    "SWCL parallel series\ncorrected rate, X_LM,\nuncertainty, flags", C_OUT, fs=7.2, bold=True)
+    "Parallel corrected series\ncorrected rate, $X_{LM}$,\nuncertainty, status", C_OUT, fs=7.2, bold=True)
 box(ax, 0.695, y3, 0.25, 0.108,
     "Operator display and\nallocation system\nvia OPC-UA / Modbus TCP", C_SOFT, fs=7.2)
 arr(ax, 0.82, y1, 0.82, y3 + 0.108)
@@ -93,7 +93,7 @@ arr(ax, 0.625, y3 + 0.054, 0.695, y3 + 0.054)
 arr(ax, 0.18, y1, 0.18, y3 + 0.108, ls=(0, (4, 2)))
 
 ax.text(0.5, 0.062,
-        "The custody-transfer path on the left is unaltered in Stage 1. SWCL publishes a second, "
+        "The custody-transfer path on the left is unaltered. The correction layer publishes a second, "
         "fully audited series beside it.",
         ha="center", va="top", fontsize=7.2, color="#333333")
 

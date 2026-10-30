@@ -332,18 +332,24 @@ def fig_estimators():
 def fig_ablation():
     fig, ax = plt.subplots(figsize=(7.0, 4.0))
     names = [r[0] for r in rows]
+    shown = {"Correlation with known X_LM (oracle)": "Correlation with known $X_{LM}$ (oracle)",
+             "E1 only (thermodynamic)": "Thermodynamic estimator alone", "E2 only (diagnostic)": "Diagnostic estimator alone",
+             "Fusion, carryover omitted from E1 budget": "Fusion, carryover omitted from the budget",
+             "Fusion, honest E1 uncertainty budget": "Fusion, carryover allowance declared",
+             "Robust asymmetric fusion": "Asymmetric weighting, Eq. (12)",
+             "SWCL: robust fusion + consistency rejection": "Full method, with acceptance test"}
     vals = [abl[n]["band95"] for n in names]
     rmses = [abl[n]["rmse"] for n in names]
     y = np.arange(len(names))[::-1]
     ax.barh(y + 0.18, vals, height=0.34, color=C1, label="95% band")
     ax.barh(y - 0.18, rmses, height=0.34, color=C3, label="RMSE")
-    ax.set_yticks(y); ax.set_yticklabels(names, fontsize=7.4)
+    ax.set_yticks(y); ax.set_yticklabels([shown.get(n, n) for n in names], fontsize=7.4)
     ax.axvline(3.0, color="k", ls="--", lw=0.9); ax.axvline(2.0, color="k", ls=":", lw=0.9)
     ax.text(3.05, len(names)-0.6, "±3%", fontsize=7.5)
     ax.text(2.05, len(names)-0.6, "±2%", fontsize=7.5)
     ax.set_xlabel("gas-rate error (%)")
     ax.set_xlim(0, 16)
-    ax.set_title("Contribution of each element of the estimator",
+    ax.set_title("Contribution of each element of the method",
                  fontsize=9.5, fontweight="bold")
     ax.legend(fontsize=7.5, loc="lower right")
     fig.tight_layout()
@@ -363,8 +369,8 @@ def fig_sensitivity():
     ax.barh(np.arange(len(vals))[::-1], vals, color=cols, height=0.55)
     ax.set_yticks(np.arange(len(vals))[::-1]); ax.set_yticklabels(labs, fontsize=8)
     ax.axvline(0, color="k", lw=0.8)
-    ax.set_xlabel("normalised sensitivity  $S_i = (\\partial Q/Q)\\,/\\,(\\partial x_i/x_i)$")
-    ax.set_title("What limits the corrected-rate accuracy ($X_{LM}$ = 0.05)",
+    ax.set_xlabel("normalized sensitivity  $S_i = (\\partial Q/Q)\\,/\\,(\\partial x_i/x_i)$")
+    ax.set_title("Normalized sensitivity of the corrected gas rate ($X_{LM}$ = 0.05)",
                  fontsize=9.5, fontweight="bold")
     fig.tight_layout()
     fig.savefig(os.path.join(OUT, "figC_sensitivity.png"), dpi=300,
@@ -409,7 +415,7 @@ def fig_distribution():
     es = corrected_error(st, Xr)[accept]
     bins = np.linspace(-8, 20, 140)
     ax.hist(eu, bins=bins, color=C2, alpha=0.78, label="uncorrected meter")
-    ax.hist(es, bins=bins, color=C1, alpha=0.82, label="SWCL corrected (accepted)")
+    ax.hist(es, bins=bins, color=C1, alpha=0.82, label="corrected, full method (accepted)")
     for v in (-3, 3):
         ax.axvline(v, color="#333", ls="--", lw=0.9)
     ax.text(3.2, ax.get_ylim()[1]*0.9, "±3%", fontsize=8)

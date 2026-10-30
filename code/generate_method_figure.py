@@ -43,8 +43,8 @@ box(ax, 0.675, yB, 0.28, 0.082,
 arr(ax, 0.185, yA, 0.185, yB + 0.082)
 arr(ax, 0.815, yA, 0.815, yB + 0.082)
 
-ax.text(0.185, yB - 0.022, "$X^{(1)},\\ \\sigma_1$", ha="center", fontsize=7.6)
-ax.text(0.815, yB - 0.022, "$X^{(2)},\\ \\sigma_2$", ha="center", fontsize=7.6)
+ax.text(0.115, yB - 0.022, "$X^{(1)},\\ u_1$", ha="center", fontsize=7.6)
+ax.text(0.885, yB - 0.022, "$X^{(2)},\\ u_2$", ha="center", fontsize=7.6)
 
 # reference calibration, feeding the estimators rather than the real-time path
 box(ax, 0.375, yB, 0.25, 0.082,
@@ -56,10 +56,10 @@ ax.text(0.50, yB - 0.020, "periodic calibration and drift control", ha="center",
 
 # fusion
 yC = 0.610
-box(ax, 0.230, yC, 0.54, 0.086,
+box(ax, 0.170, yC, 0.66, 0.086,
     "Uncertainty-aware fusion\n"
-    "$X_f$, $\\sigma_f$   and   consistency index $Z=|X^{(1)}-X^{(2)}|/\\sqrt{\\sigma_1^2+\\sigma_2^2}$",
-    C_FUSE, fs=7.6, bold=True, lw=1.6)
+    "$X_f$, $u_f$   and   consistency index $Z=|X^{(1)}-X^{(2)}|/\\sqrt{u_1^2+u_2^2-2c}$",
+    C_FUSE, fs=7.2, bold=True, lw=1.6)
 arr(ax, 0.185, yB, 0.330, yC + 0.086, lw=1.2)
 arr(ax, 0.815, yB, 0.670, yC + 0.086, lw=1.2)
 
@@ -85,9 +85,9 @@ box(ax, 0.055, yF, 0.34, 0.076,
 arr(ax, 0.225, yE, 0.225, yF + 0.076)
 
 yG = 0.062
-box(ax, 0.155, yG, 0.69, 0.078,
+box(ax, 0.120, yG, 0.76, 0.078,
     "Corrected gas rate $Q_G$  ·  expanded uncertainty $U(Q_G)$  ·  status flag",
-    C_OUT, fs=8.0, bold=True)
+    C_OUT, fs=7.4, bold=True)
 arr(ax, 0.225, yF, 0.360, yG + 0.078)
 arr(ax, 0.780, yE, 0.660, yG + 0.078)
 
