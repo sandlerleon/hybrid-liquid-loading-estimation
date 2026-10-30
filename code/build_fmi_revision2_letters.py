@@ -309,6 +309,11 @@ fix_zoom(tp)
 tp.save(os.path.join(OUTD, "FMI_Title_Page.docx"))
 hl = Document(os.path.join(SRCD, "revision1", "FMI_Highlights.docx"))
 fix_zoom(hl)
+for p in hl.paragraphs:
+    if p.text.startswith("The consistency index has 94% precision"):
+        for r in p.runs[1:]:
+            r._r.getparent().remove(r._r)
+        p.runs[0].text = "The consistency index has 94.8% precision but only 2.9% sensitivity for carryover"
 hl.save(os.path.join(OUTD, "FMI_Highlights.docx"))
 
 # ============================================================================================ manuscript and figures

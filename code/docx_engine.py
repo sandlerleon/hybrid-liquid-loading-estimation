@@ -74,6 +74,9 @@ def _math_tokens(s, upright=False):
             m = re.match(r"\\([A-Za-z]+|.)", s[i:])
             name = m.group(1)
             i += len(m.group(0))
+            if name.isalpha():                     # as in LaTeX, a space after a control word is not printed
+                while i < len(s) and s[i] == " ":
+                    i += 1
             if name in ("mathrm", "rm", "text"):
                 g, i = _group(s, i)
                 out += [(t, False, va) for t, _, va in _math_tokens(g, upright=True)]
@@ -85,7 +88,7 @@ def _math_tokens(s, upright=False):
                     sub[0] = (t[0] + ACCENT[name] + t[1:], it, va)
                 out += sub
             elif name in FUNCS:
-                out.append((name, False, None))
+                out.append((name + "\u2009", False, None))
             elif name in GREEK:
                 ch = GREEK[name]
                 out.append((ch, (not upright) and ch.isalpha() and ch not in UPRIGHT_GREEK, None))
