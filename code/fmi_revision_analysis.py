@@ -366,7 +366,7 @@ def fig_modelform():
     ax.set_xticks(x); ax.set_xticklabels(short, fontsize=6.4)
     ax.set_ylabel("95% error band (±%)"); ax.set_xlabel("truth over-reading model (scaled: systematic change of the over-reading)", fontsize=7)
     ax.set_ylim(0, max(mf[n]["full"]["band95"] for n in names) * 1.45)
-    ax.set_title("Error band when the truth differs from the correction", fontsize=8.6, fontweight="bold")
+    ax.set_title("(a) Error band when the truth differs from the correction", fontsize=8.6, fontweight="bold")
     ax.legend(fontsize=6.3, loc="upper left")
     ax = axes[1]
     ax.bar(x - wd / 2, [100 * mf[n]["full"]["coverage_2u"] for n in names], wd, color=C2, label="no model-form term declared")
@@ -375,7 +375,7 @@ def fig_modelform():
     ax.axhline(95, color="k", ls="--", lw=0.9); ax.text(len(names) - 0.55, 95.6, "95%", fontsize=7, ha="right")
     ax.set_xticks(x); ax.set_xticklabels(short, fontsize=6.4)
     ax.set_ylim(60, 101); ax.set_ylabel("realized coverage of declared ±2$u$ (%)"); ax.set_xlabel("truth over-reading model", fontsize=7)
-    ax.set_title("Does the declared uncertainty still cover?", fontsize=8.6, fontweight="bold")
+    ax.set_title("(b) Does the declared uncertainty still cover?", fontsize=8.6, fontweight="bold")
     ax.legend(fontsize=6.3, loc="lower left")
     fig.tight_layout()
     fig.savefig(os.path.join(OUT, "figI_modelform.png"), dpi=300, bbox_inches="tight", facecolor="white")
@@ -445,7 +445,7 @@ def fig_detector():
         ax.plot(c["fpr"], c["sensitivity"], "o", color="k", ms=3.5)
         ax.annotate("$Z_{max}$=%g" % z, (c["fpr"], c["sensitivity"]), textcoords="offset points", xytext=(5, -3), fontsize=6.4)
     ax.set_xlabel("false-positive rate"); ax.set_ylabel("sensitivity")
-    ax.set_title("ROC", fontsize=8.6, fontweight="bold"); ax.legend(fontsize=6.2, loc="center right")
+    ax.set_title("(a) ROC", fontsize=8.6, fontweight="bold"); ax.legend(fontsize=6.2, loc="center right")
     ax = axes[1]
     ax.plot(rc["tpr"], rc["precision"], color=C1, lw=1.6, label="carryover present")
     ax.plot(rq["tpr"], rq["precision"], color=C2, lw=1.6, label="|error| > 3%")
@@ -455,7 +455,7 @@ def fig_detector():
         ax.plot(c["sensitivity"], c["precision"], "o", color="k", ms=3.5)
         ax.annotate("%g" % z, (c["sensitivity"], c["precision"]), textcoords="offset points", xytext=(4, 3), fontsize=6.4)
     ax.set_xlabel("sensitivity (recall)"); ax.set_ylabel("precision"); ax.set_ylim(0, 1.02)
-    ax.set_title("Precision–recall", fontsize=8.6, fontweight="bold"); ax.legend(fontsize=6.2, loc="upper right")
+    ax.set_title("(b) Precision–recall", fontsize=8.6, fontweight="bold"); ax.legend(fontsize=6.2, loc="upper right")
     ax = axes[2]
     bins = dt["detection_by_magnitude"]["bins"]
     xl = ["%d–%d" % (round(100 * a), round(100 * b)) for a, b in bins]
@@ -463,7 +463,7 @@ def fig_detector():
         ax.plot(range(len(xl)), 100 * np.array(dt["detection_by_magnitude"]["rate"][z]), "o-", color=c, ms=4, lw=1.4, label="$Z_{max}$ = %s" % z)
     ax.set_xticks(range(len(xl))); ax.set_xticklabels(xl, fontsize=7)
     ax.set_xlabel("carryover fraction of the total liquid (%)"); ax.set_ylabel("share of those cases rejected (%)")
-    ax.set_title("Detection against carryover size", fontsize=8.6, fontweight="bold"); ax.legend(fontsize=6.4)
+    ax.set_title("(c) Detection against carryover size", fontsize=8.6, fontweight="bold"); ax.legend(fontsize=6.4)
     fig.tight_layout()
     fig.savefig(os.path.join(OUT, "figK_detector.png"), dpi=300, bbox_inches="tight", facecolor="white")
     plt.close(fig)
